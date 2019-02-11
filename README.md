@@ -4,6 +4,8 @@ implemented in
 [F#](https://fsharp.org/)
 in two lines of code. Very simple but I thought it was so cool I wanted to save it!
 
+![reduxinfsharp2](https://user-images.githubusercontent.com/38290734/52561446-b6e4cd00-2dfb-11e9-9fd7-5d3b892b6a2c.gif)
+
 ---
 ## How it works
 This is the entire implementation of Redux in F#:
