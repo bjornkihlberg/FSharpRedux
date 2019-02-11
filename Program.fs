@@ -1,6 +1,6 @@
 ﻿open System
 
-let store (init: 'State) (reducer: 'State -> 'Action -> 'State) =
+let createStore (init: 'State) (reducer: 'State -> 'Action -> 'State) =
     let inputEvent = Event<'Action>()
     Observable.scan reducer init inputEvent.Publish, inputEvent.Trigger
 
@@ -9,12 +9,11 @@ type State = { i: int }
 type Action = Increment
             | Decrement
 
-let reducer (state: State) (action: Action): State =
-    match action with
+let reducer (state: State): Action -> State = function
     | Increment -> { state with i = state.i + 1 }
     | Decrement -> { state with i = state.i - 1 }
 
-let states, dispatch = store { i = 0 } reducer
+let states, dispatch = createStore { i = 0 } reducer
 
 [<EntryPoint>]
 let main _ =
